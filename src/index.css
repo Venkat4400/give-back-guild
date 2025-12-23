@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* SkillBridge Design System - Warm, hopeful, nonprofit-inspired */
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Teal - Primary brand color representing trust & growth */
+    --primary: 175 70% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Coral - Warm accent for CTAs and energy */
+    --secondary: 15 85% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Soft sage accent */
+    --accent: 150 30% 90%;
+    --accent-foreground: 175 70% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 175 70% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --success: 150 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 200 80% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(175 70% 35%) 0%, hsl(180 60% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(15 85% 60%) 0%, hsl(25 80% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(175 70% 25%) 0%, hsl(200 60% 30%) 50%, hsl(220 40% 25%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 25% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 25% 10% / 0.1), 0 2px 4px -2px hsl(220 25% 10% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 25% 10% / 0.1), 0 4px 6px -4px hsl(220 25% 10% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 25% 10% / 0.1), 0 8px 10px -6px hsl(220 25% 10% / 0.1);
+    --shadow-glow: 0 0 40px hsl(175 70% 35% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 175 65% 45%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 15 75% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 175 40% 20%;
+    --accent-foreground: 175 65% 70%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 175 65% 45%;
+
+    --success: 150 50% 35%;
+    --warning: 38 80% 45%;
+    --info: 200 70% 45%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(200 40% 12%) 50%, hsl(175 30% 15%) 100%);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .text-gradient-secondary {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-secondary);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background-image: var(--gradient-secondary);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-strong {
+    @apply bg-card/95 backdrop-blur-2xl border border-border;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
